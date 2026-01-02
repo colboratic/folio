@@ -5,12 +5,11 @@ function CycleCalendar({ lastPeriod, cycleLength }) {
 
   const months = useMemo(() => {
     const startDate = new Date(lastPeriod);
-    const currentYear = new Date().getFullYear();
     const monthsData = [];
 
-    // สร้างปฏิทิน 12 เดือน
+    // สร้างปฏิทิน 12 เดือน โดยเริ่มจากเดือนที่ผู้ใช้เลือก
     for (let i = 0; i < 12; i++) {
-      const monthDate = new Date(currentYear, startDate.getMonth() + i, 1);
+      const monthDate = new Date(startDate.getFullYear(), startDate.getMonth() + i, 1);
       const year = monthDate.getFullYear();
       const month = monthDate.getMonth();
 
